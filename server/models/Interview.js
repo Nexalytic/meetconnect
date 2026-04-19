@@ -2,6 +2,12 @@ import mongoose from "mongoose";
 
 const interviewSchema = new mongoose.Schema(
   {
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+
     candidateName: {
       type: String,
       required: true,
@@ -32,7 +38,6 @@ const interviewSchema = new mongoose.Schema(
       required: true,
     },
 
-    // New fields for completed interviews
     feedback: {
       type: String,
       default: "Pending feedback",
