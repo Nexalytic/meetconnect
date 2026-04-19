@@ -15,12 +15,18 @@ function MyInterviews() {
     try {
       setLoading(true);
 
+      const token = localStorage.getItem("token");
+
       const url =
         filter === "upcoming"
           ? "https://meetconnect-backend-lon4.onrender.com/api/interview/upcoming"
           : "https://meetconnect-backend-lon4.onrender.com/api/interview/completed";
 
-      const response = await axios.get(url);
+      const response = await axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       setInterviews(response.data);
       setLoading(false);
