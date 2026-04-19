@@ -65,8 +65,15 @@ function Dashboard() {
     try {
       setLoading(true);
 
+      const token = localStorage.getItem("token");
+
       const response = await axios.get(
-        "https://meetconnect-backend-lon4.onrender.com/api/interview/upcoming"
+        "https://meetconnect-backend-lon4.onrender.com/api/interview/upcoming",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
 
       setUpcomingInterviews(response.data);
@@ -98,14 +105,24 @@ function Dashboard() {
     }
 
     try {
-      await axios.post("https://meetconnect-backend-lon4.onrender.com/api/interview", {
-        candidateName,
-        candidateEmail,
-        interviewDate,
-        interviewTime,
-        interviewType,
-        interviewer,
-      });
+      const token = localStorage.getItem("token");
+
+      await axios.post(
+        "https://meetconnect-backend-lon4.onrender.com/api/interview",
+        {
+          candidateName,
+          candidateEmail,
+          interviewDate,
+          interviewTime,
+          interviewType,
+          interviewer,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       alert("Interview Scheduled Successfully ✅");
 
@@ -277,16 +294,13 @@ function Dashboard() {
             </p>
           </div>
 
-          {/* Carousel Dots */}
           <div className="flex justify-center gap-3 py-4 bg-white">
             {carouselSlides.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`w-4 h-4 rounded-full ${
-                  currentSlide === index
-                    ? "bg-blue-600"
-                    : "bg-gray-300"
+                  currentSlide === index ? "bg-blue-600" : "bg-gray-300"
                 }`}
               ></button>
             ))}
@@ -296,7 +310,6 @@ function Dashboard() {
 
       {/* Main Content */}
       <div className="flex-grow grid grid-cols-1 lg:grid-cols-2 gap-8 p-4 md:p-8">
-        {/* Schedule Form */}
         <form
           onSubmit={handleSchedule}
           className="bg-white shadow-lg hover:shadow-2xl transition duration-300 rounded-2xl p-6 md:p-8"
@@ -341,15 +354,9 @@ function Dashboard() {
             className="w-full p-3 mb-4 border rounded-lg"
           >
             <option value="">Select Interview Type</option>
-            <option value="Frontend Development">
-              Frontend Development
-            </option>
-            <option value="Backend Development">
-              Backend Development
-            </option>
-            <option value="Full Stack Development">
-              Full Stack Development
-            </option>
+            <option value="Frontend Development">Frontend Development</option>
+            <option value="Backend Development">Backend Development</option>
+            <option value="Full Stack Development">Full Stack Development</option>
             <option value="Behavioral">Behavioral</option>
           </select>
 
@@ -372,7 +379,6 @@ function Dashboard() {
           </button>
         </form>
 
-        {/* Upcoming Interviews */}
         <div className="bg-white shadow-lg hover:shadow-2xl transition duration-300 rounded-2xl p-6 md:p-8">
           <h2 className="text-2xl font-bold mb-6 text-blue-600">
             Upcoming Interviews
@@ -477,7 +483,6 @@ function Dashboard() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="bg-white shadow-inner py-4 text-center text-gray-600 text-sm mt-6">
         © 2026 MeetConnect. All rights reserved.
       </footer>
