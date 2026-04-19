@@ -17,8 +17,8 @@ function MyInterviews() {
 
       const url =
         filter === "upcoming"
-          ? "http://localhost:5000/api/interview/upcoming"
-          : "http://localhost:5000/api/interview/completed";
+          ? "https://meetconnect-backend-lon4.onrender.com/api/interview/upcoming"
+          : "https://meetconnect-backend-lon4.onrender.com/api/interview/completed";
 
       const response = await axios.get(url);
 
