@@ -66,7 +66,7 @@ function Dashboard() {
       setLoading(true);
 
       const response = await axios.get(
-        "http://localhost:5000/api/interview/upcoming"
+        "https://meetconnect-backend-lon4.onrender.com/api/interview/upcoming"
       );
 
       setUpcomingInterviews(response.data);
@@ -98,7 +98,7 @@ function Dashboard() {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/interview", {
+      await axios.post("https://meetconnect-backend-lon4.onrender.com/api/interview", {
         candidateName,
         candidateEmail,
         interviewDate,
