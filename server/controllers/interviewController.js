@@ -12,7 +12,6 @@ export const createInterview = async (req, res) => {
       interviewer,
     } = req.body;
 
-    // Validation
     if (
       !candidateName ||
       !candidateEmail ||
@@ -26,8 +25,8 @@ export const createInterview = async (req, res) => {
       });
     }
 
-    // Create interview record
     const newInterview = new Interview({
+      userId: req.user.id,
       candidateName,
       candidateEmail,
       interviewDate,
@@ -56,6 +55,7 @@ export const getUpcomingInterviews = async (req, res) => {
     const today = new Date().toISOString().split("T")[0];
 
     const interviews = await Interview.find({
+      userId: req.user.id,
       interviewDate: { $gte: today },
     }).sort({ interviewDate: 1 });
 
@@ -74,10 +74,10 @@ export const getCompletedInterviews = async (req, res) => {
     const today = new Date().toISOString().split("T")[0];
 
     let interviews = await Interview.find({
+      userId: req.user.id,
       interviewDate: { $lt: today },
     }).sort({ interviewDate: -1 });
 
-    // Auto-fill completed interview details
     interviews = interviews.map((interview) => {
       if (
         interview.feedback === "Pending feedback" &&
