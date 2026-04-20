@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 function Profile() {
   const [name, setName] = useState("");
@@ -7,27 +8,53 @@ function Profile() {
   const [dob, setDob] = useState("");
 
   useEffect(() => {
-    const savedName =
-      localStorage.getItem("userName") || "Deepak Raj";
-    const savedEmail =
-      localStorage.getItem("userEmail") || "deepak@test.com";
-    const savedContact =
-      localStorage.getItem("userContact") || "9876543210";
-    const savedDob =
-      localStorage.getItem("userDOB") || "2000-01-01";
-
-    setName(savedName);
-    setEmail(savedEmail);
-    setContact(savedContact);
-    setDob(savedDob);
+    fetchProfile();
   }, []);
 
-  const handleSave = () => {
-    localStorage.setItem("userName", name);
-    localStorage.setItem("userContact", contact);
-    localStorage.setItem("userDOB", dob);
+  const fetchProfile = async () => {
+    try {
+      const token = localStorage.getItem("token");
 
-    alert("Profile updated successfully ✅");
+      const res = await axios.get(
+        "https://meetconnect-backend-lon4.onrender.com/api/auth/profile",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      setName(res.data.name || "");
+      setEmail(res.data.email || "");
+      setContact(res.data.phone || "");
+      setDob(res.data.dob || "");
+    } catch (error) {
+      alert("Failed to load profile");
+    }
+  };
+
+  const handleSave = async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      const res = await axios.put(
+        "https://meetconnect-backend-lon4.onrender.com/api/auth/profile",
+        {
+          name,
+          phone: contact,
+          dob,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      alert(res.data.message);
+    } catch (error) {
+      alert("Failed to update profile");
+    }
   };
 
   return (
