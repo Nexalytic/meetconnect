@@ -1,12 +1,23 @@
 import express from "express";
-import { signup, login } from "../controllers/authController.js";
+import {
+  signup,
+  login,
+  getProfile,
+  updateProfile,
+} from "../controllers/authController.js";
 
 const router = express.Router();
 
-// Signup route
+// Signup
 router.post("/signup", signup);
 
-// 🔥 Login route (NEW)
+// Login
 router.post("/login", login);
+
+// Get Profile
+router.get("/profile", getProfile);
+
+// Update Profile
+router.put("/profile", updateProfile);
 
 export default router;
