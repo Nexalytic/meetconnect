@@ -1,4 +1,3 @@
-````md
 # MeetConnect – Mock Interview Scheduling Platform
 
 MeetConnect is a full-stack web application built to help students schedule, manage, and prepare for mock interviews through a clean, responsive, and user-friendly platform.
@@ -7,105 +6,117 @@ Users can create accounts, securely log in, schedule interviews, track upcoming 
 
 ---
 
-# Live Project Links
+## 🌐 Live Project Links
 
-## Frontend (Netlify)
-https://meetconnect-frontend.netlify.app
+### Frontend (Netlify)
 
-## Backend API (Render)
-https://meetconnect-backend-lon4.onrender.com/
+[https://meetconnect-frontend.netlify.app](https://meetconnect-frontend.netlify.app)
 
----
+### Backend API (Render)
 
-# Key Features
-
-## User Authentication
-- Secure Signup and Login system
-- JWT Token-based authentication
-- Protected routes
-- Multi-user support
-
-## Dashboard
-- Schedule mock interviews
-- Select interview type
-- Choose interviewer
-- Pick interview date and time
-- View upcoming interviews instantly
-
-## My Interviews
-- View Upcoming Interviews
-- View Completed Interviews
-- Filter interviews by type
-- Clean interview cards with details
-
-## My Profile
-- View personal profile
-- Update Name
-- Update Contact Number
-- Update Date of Birth
-- Email remains read-only
-
-## Practice Resources
-- Interview preparation resources based on selected category
-
-## Responsive UI
-- Mobile friendly
-- Smooth navigation
-- Modern clean design
+[https://meetconnect-backend-lon4.onrender.com/](https://meetconnect-backend-lon4.onrender.com/)
 
 ---
 
-# Tech Stack
+## 🚀 Key Features
 
-## Frontend
-- React.js
-- Vite
-- Tailwind CSS
-- React Router DOM
-- Axios
+### 🔐 User Authentication
 
-## Backend
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-- JWT Authentication
-- bcryptjs
+* Secure Signup and Login system
+* JWT Token-based authentication
+* Protected routes
+* Multi-user support
 
-## Deployment
-- Netlify (Frontend)
-- Render (Backend)
+### 📊 Dashboard
+
+* Schedule mock interviews
+* Select interview type
+* Choose interviewer
+* Pick interview date and time
+* View upcoming interviews instantly
+
+### 📁 My Interviews
+
+* View Upcoming Interviews
+* View Completed Interviews
+* Filter interviews by type
+* Clean interview cards with full details
+
+### 👤 My Profile
+
+* View personal profile
+* Update Name
+* Update Contact Number
+* Update Date of Birth
+* Email remains read-only
+
+### 📚 Practice Resources
+
+* Interview preparation resources based on selected category
+
+### 📱 Responsive UI
+
+* Mobile friendly
+* Smooth navigation
+* Modern clean design
 
 ---
 
-# Project Structure
+## 🛠 Tech Stack
+
+### Frontend
+
+* React.js
+* Vite
+* Tailwind CSS
+* React Router DOM
+* Axios
+
+### Backend
+
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+* JWT Authentication
+* bcryptjs
+
+### Deployment
+
+* Netlify (Frontend)
+* Render (Backend)
+
+---
+
+## 📂 Project Structure
 
 ```bash
-client/
- ├── src/
- │   ├── pages/
- │   ├── components/
- │   └── App.jsx
-
-server/
- ├── controllers/
- ├── models/
- ├── routes/
- └── server.js
-````
+meetconnect/
+│── client/
+│   ├── src/
+│   │   ├── pages/
+│   │   ├── components/
+│   │   └── App.jsx
+│
+│── server/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   └── server.js
+```
 
 ---
 
-# API Endpoints
+## 🔗 API Endpoints
 
-## Authentication Routes
+### Authentication Routes
 
 * POST /api/auth/signup
 * POST /api/auth/login
 * GET /api/auth/profile
 * PUT /api/auth/profile
 
-## Interview Routes
+### Interview Routes
 
 * POST /api/interview
 * GET /api/interview/upcoming
@@ -113,29 +124,29 @@ server/
 
 ---
 
-# Multi User Functionality
+## 👥 Multi User Functionality
 
 MeetConnect fully supports multiple users.
 
 Each user gets:
 
 * Separate interview records
-* Separate personal profile
-* Secure login session
-* Individual dashboard data
+* Separate profile data
+* Secure login sessions
+* Personal dashboard experience
 
 ---
 
-# Installation (Local Setup)
+## ⚙️ Installation (Local Setup)
 
-## Clone Repository
+### Clone Repository
 
 ```bash
 git clone <your-repository-url>
 cd meetconnect
 ```
 
-## Frontend Setup
+### Frontend Setup
 
 ```bash
 cd client
@@ -143,7 +154,7 @@ npm install
 npm run dev
 ```
 
-## Backend Setup
+### Backend Setup
 
 ```bash
 cd server
@@ -153,9 +164,9 @@ npm start
 
 ---
 
-# Environment Variables
+## 🔐 Environment Variables
 
-Create a `.env` file inside the server folder:
+Create a `.env` file inside the `server` folder:
 
 ```env
 MONGO_URI=your_mongodb_connection_string
@@ -165,18 +176,7 @@ PORT=5000
 
 ---
 
-# Screens Included
-
-* Login Page
-* Signup Page
-* Dashboard
-* My Interviews
-* My Profile
-* Practice Resources
-
----
-
-# Purpose of Project
+## 🎯 Purpose of Project
 
 This project was built as a capstone project to demonstrate real-world Full Stack Web Development skills including:
 
@@ -190,7 +190,7 @@ This project was built as a capstone project to demonstrate real-world Full Stac
 
 ---
 
-# Future Improvements
+## 🔮 Future Improvements
 
 * Google Login
 * Email Notifications
@@ -202,19 +202,16 @@ This project was built as a capstone project to demonstrate real-world Full Stac
 
 ---
 
-# Author
+## 👨‍💻 Author
 
-Deepak Raj
+**Deepak Raj**
 
 ---
 
-# Final Status
+## ✅ Final Status
 
-Production Ready
-Fully Deployed
-Frontend + Backend Live
-Multi User Working
-Capstone Ready
-
-```
-```
+* Production Ready
+* Fully Deployed
+* Frontend + Backend Live
+* Multi User Working
+* Capstone Ready
